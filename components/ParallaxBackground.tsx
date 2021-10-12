@@ -46,7 +46,7 @@ const ParallaxBackground = ({ noChar }: { noChar?: boolean }) => {
         }}
       />
 
-      <chakra.img
+      {/*<chakra.img
         position="absolute"
         left="50%"
         h="full"
@@ -59,7 +59,7 @@ const ParallaxBackground = ({ noChar }: { noChar?: boolean }) => {
             parallax[1] * 100
           }%)`,
         }}
-      />
+      />*/}
     </>
   );
 };
