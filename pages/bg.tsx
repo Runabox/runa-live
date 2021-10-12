@@ -8,7 +8,7 @@ const Home = () => {
     <Layout title="runa.live" description="runa.live by Runabox#0001">
       <chakra.div position="relative" h="100vh" overflow="hidden">
         <chakra.div pointerEvents="none">
-          <ParallaxBackground noChar />
+          <ParallaxBackground />
 
           <chakra.div
             position="absolute"

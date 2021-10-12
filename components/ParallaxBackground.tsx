@@ -1,14 +1,13 @@
 import React, { memo } from "react";
-import Background from "../assets/Background.jpg";
-import Megu from "../assets/Megu.png";
 import { chakra } from "@chakra-ui/react";
 import Snowfall from "./Snowfall";
 import { useMousePosition, useWindowSize } from "../utils/hooks";
+const Background = require('../assets/Background.jpg');
 
 const parallaxStrength = 0.01;
 const parallaxEasing = "transform .6s cubic-bezier(0.33, 1, 0.68, 1)";
 
-const ParallaxBackground = ({ noChar }: { noChar?: boolean }) => {
+const ParallaxBackground = () => {
   const size = useWindowSize();
   const position = useMousePosition();
 
