@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import { chakra } from "@chakra-ui/react";
 import Snowfall from "./Snowfall";
 import { useMousePosition, useWindowSize } from "../utils/hooks";
-const Background = require('../assets/Background.jpg');
+const Background = require('../assets/Background.png');
 
 const parallaxStrength = 0.01;
 const parallaxEasing = "transform .6s cubic-bezier(0.33, 1, 0.68, 1)";
