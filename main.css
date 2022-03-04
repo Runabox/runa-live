@@ -1,0 +1,22 @@
+* {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    text-align: center;
+    background-color: black;
+
+    display: table;
+    height: 100%;
+    overflow: hidden;
+}
+
+#countdown {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100vh;
+    width: 100vw;
+
+    font-size: 700%;
+}
