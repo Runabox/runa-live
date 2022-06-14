@@ -1,0 +1,29 @@
+* {
+    font-family: 'Mukta', sans-serif; 
+}
+
+.main {
+    color: black;
+    position: relative;
+    margin-top: 20%;
+    height: 100%;
+    font-size: 350%;
+}
+
+.main p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(2px);
+    opacity: 50%;
+}
+
+.leave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    color: white;
+}
