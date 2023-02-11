@@ -8,7 +8,9 @@ export default function App({ Component, pageProps }) {
         global: (props) => ({
           body: {
             bg: '#000000',
-            color: '#ffffff'
+          },
+          '*': {
+            color: '#ffffff!important'
           },
         }),
       },
