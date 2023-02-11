@@ -1,14 +1,69 @@
-import { Box, Center, Container, Heading, Text, Tooltip } from "@chakra-ui/react";
+import { Avatar, AvatarBadge, Box, Center, Container, Flex, Heading, Image, ScaleFade, Spinner, Text, Tooltip, useToast } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
 function Index() {
+    const [loading, setLoading] = useState(true);
+    const [status, setStatus] = useState({});
+    const toast = useToast();
+
+    useEffect(() => {
+        (async () => {
+            let res = await fetch('https://api.discord-status.me/raw/942536039505985557').catch(e => { });
+
+            if (res === undefined || !res.ok)
+                return toast({
+                    status: 'error',
+                    position: 'bottom-right',
+                    title: 'Error',
+                    description: 'Error loading Discord status',
+                });
+
+            let result = await res.json().catch(e => { });
+            if (result === undefined)
+                return toast({
+                    status: 'error',
+                    position: 'bottom-right',
+                    title: 'Error',
+                    description: 'Error loading Discord status',
+                });
+
+            console.log(result);
+            setStatus(result);
+            setLoading(false);
+        })();
+    }, []);
+
+    if (loading)
+        return <Center h='100vh'><Spinner /></Center>;
+
     return (
         <Container maxW='container.xl'>
             <Center h='100vh'>
-                <Box>
-                    <Tooltip label='runa#0002' hasArrow>
-                        <Heading fontSize='500%' textShadow='5px 5px 8px lightblue'>runa.live</Heading>
-                    </Tooltip>
-                </Box>
+                <ScaleFade initialScale={0.75} in={true}>
+                    <Box borderRadius={50} w={500} h={250} shadow='0px 0px 40px 10px rgba(255, 255, 255, 0.05)' bg='rgba(255, 255, 255, 0.01)'>
+                        <Center h='100%'>
+                            <Flex w='90%'>
+                                <Avatar
+                                    src={status.user.avatar}
+                                    w={150}
+                                    h={150}
+                                >
+                                    <Tooltip placement='top' label={status['status_text']} bg='rgba(20, 20, 20, 1)' mb={-1} closeDelay={500}>
+                                        <AvatarBadge as={Image} w={50} bg='black' borderWidth={5} borderColor='rgba(0, 0, 0, 0.0)' h={50} src={status['status_image']} />
+                                    </Tooltip>
+                                </Avatar>
+
+                                <Box ml={5} opacity='55%'>
+                                    <Tooltip placement='top' label={status.user.id} bg='rgba(20, 20, 20, 1)' mb={-4} closeDelay={500}>
+                                        <Text fontSize='250%'>{status.user.username}<span style={{ opacity: '60%' }}>#{status.user.discriminator}</span></Text>
+                                    </Tooltip>
+                                    <Text>full stack developer</Text>
+                                    <Text>react | js | c# | next</Text>
+                                </Box>
+                            </Flex>
+                        </Center>
+                    </Box>
+                </ScaleFade>
             </Center>
         </Container>
     )
