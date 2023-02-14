@@ -47,7 +47,7 @@ function Index() {
             <Container maxW='container.xl'>
                 <Center h='100vh'>
                     <ScaleFade initialScale={0.75} in={true}>
-                        <Box borderRadius={50} w={500} h={250} shadow='0px 0px 40px 10px rgba(255, 255, 255, 0.05)' bg='rgba(255, 255, 255, 0.01)'>
+                        <Box borderRadius={50} w={500} h={250} shadow='0px 0px 40px 10px rgba(0,0,0, 0.60)' bg='rgba(0,0,0, 0.40)'>
                             <Center h='100%'>
                                 <Flex w='90%'>
                                     <Avatar
