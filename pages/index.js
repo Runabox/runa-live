@@ -82,7 +82,7 @@ function Index() {
         <Flex
           flexDir="row"
           gap="100%"
-          mt={20}
+          mt={10}
           p={25}
           borderRadius={10}
           w="100%"
@@ -112,6 +112,29 @@ function Index() {
             >
               React / Next | JavaScript | C#
             </Text>
+
+            <VStack
+              alignItems="right"
+              textAlign="right"
+              spacing={1}
+              display={{ md: 'none' }}
+            >
+              <SocialLink
+                icon={<FaDiscord />}
+                href="runabox"
+                type="copy"
+                text="Discord"
+                copyState={copiedDiscord}
+                setCopyState={setCopiedDiscord}
+              />
+
+              <SocialLink
+                icon={<FaGithub />}
+                href="https://github.com/Runabox"
+                type="link"
+                text="GitHub"
+              />
+            </VStack>
           </VStack>
 
           <VStack
@@ -120,6 +143,7 @@ function Index() {
             position="absolute"
             right={25}
             spacing={1}
+            display={{ base: "none", md: "flex" }}
           >
             <SocialLink
               icon={<FaDiscord />}
@@ -158,7 +182,7 @@ function Index() {
         </Center>
 
         <Center>
-          <Box w="100%" mt={10}>
+          <Box w="100%" mb={20} mt={10}>
             <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={8} w="100%">
               <ProjectCard
                 title="upld"
