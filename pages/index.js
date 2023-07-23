@@ -78,46 +78,73 @@ function Index() {
         />
       </Head>
 
-      <Container maxW="container.xl">
-        <Flex
-          flexDir="row"
-          gap="100%"
-          mt={10}
-          p={25}
-          borderRadius={10}
-          w="100%"
-          bg="rgba(0, 0, 0, 0.2)"
-          boxShadow="3px 3px rgba(0, 0, 0, 0.10)"
-          position="relative"
-        >
-          <VStack spacing={4} alignItems="left">
-            <Flex flexDir="row" gap={4} alignItems="center">
-              <Avatar w={100} h={100} src={status.user.avatar} />
-              <VStack alignItems="left" spacing={0}>
-                <Heading fontSize="270%" textShadow="1px 1px black">
-                  {status.user.username}
-                </Heading>
-                <Text opacity="75%" fontSize="150%">
-                  full stack developer
-                </Text>
-              </VStack>
-            </Flex>
+      <Center>
+        <Container maxW="container.xl">
+          <Flex
+            flexDir="row"
+            gap="100%"
+            mt={10}
+            p={25}
+            borderRadius={10}
+            w="100%"
+            bg="rgba(0, 0, 0, 0.2)"
+            boxShadow="3px 3px rgba(0, 0, 0, 0.10)"
+            position="relative"
+          >
+            <VStack spacing={4} alignItems="left">
+              <Flex flexDir="row" gap={4} alignItems="center">
+                <Avatar w={100} h={100} src={status.user.avatar} />
+                <VStack alignItems="left" spacing={0}>
+                  <Heading fontSize="270%" textShadow="1px 1px black">
+                    {status.user.username}
+                  </Heading>
+                  <Text opacity="75%" fontSize="150%">
+                    full stack developer
+                  </Text>
+                </VStack>
+              </Flex>
 
-            <Text
-              fontSize="130%"
-              opacity="75%"
-              w={400}
-              textShadow="1px 1px black"
-              fontWeight={350}
-            >
-              React / Next | JavaScript | C#
-            </Text>
+              <Text
+                fontSize="130%"
+                opacity="75%"
+                w={400}
+                textShadow="1px 1px black"
+                fontWeight={350}
+              >
+                React / Next | JavaScript | C#
+              </Text>
+
+              <VStack
+                alignItems="right"
+                textAlign="right"
+                spacing={1}
+                display={{ md: "none" }}
+              >
+                <SocialLink
+                  icon={<FaDiscord />}
+                  href="runabox"
+                  type="copy"
+                  text="Discord"
+                  copyState={copiedDiscord}
+                  setCopyState={setCopiedDiscord}
+                />
+
+                <SocialLink
+                  icon={<FaGithub />}
+                  href="https://github.com/Runabox"
+                  type="link"
+                  text="GitHub"
+                />
+              </VStack>
+            </VStack>
 
             <VStack
               alignItems="right"
               textAlign="right"
+              position="absolute"
+              right={25}
               spacing={1}
-              display={{ md: "none" }}
+              display={{ base: "none", md: "flex" }}
             >
               <SocialLink
                 icon={<FaDiscord />}
@@ -135,76 +162,51 @@ function Index() {
                 text="GitHub"
               />
             </VStack>
-          </VStack>
-
-          <VStack
-            alignItems="right"
-            textAlign="right"
-            position="absolute"
-            right={25}
-            spacing={1}
-            display={{ base: "none", md: "flex" }}
-          >
-            <SocialLink
-              icon={<FaDiscord />}
-              href="runabox"
-              type="copy"
-              text="Discord"
-              copyState={copiedDiscord}
-              setCopyState={setCopiedDiscord}
-            />
-
-            <SocialLink
-              icon={<FaGithub />}
-              href="https://github.com/Runabox"
-              type="link"
-              text="GitHub"
-            />
-          </VStack>
-        </Flex>
-
-        <Center>
-          <Flex
-            h={0}
-            borderColor="rgba(0, 0, 0, 0.2)"
-            borderWidth={1}
-            alignItems="center"
-            justifyContent="center"
-            w="97%"
-            mt={10}
-          >
-            <Box bg="#212121" paddingRight={2} paddingLeft={2}>
-              <Text opacity="50%" fontWeight={500}>
-                PROJECTS
-              </Text>
-            </Box>
           </Flex>
-        </Center>
 
-        <Center>
-          <Box w="100%" mb={20} mt={10}>
-            <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={8} w="100%">
-              <ProjectCard
-                title="upld"
-                description="An easy to use, simple file uploader made for use with ShareX."
-                status="offline"
-                thumbnail="/upld-preview.png"
-                link="https://upld.cloud"
-                gradientRGB="46,44,166"
-              />
+          <Center>
+            <Flex
+              h={0}
+              borderColor="rgba(0, 0, 0, 0.2)"
+              borderWidth={1}
+              alignItems="center"
+              justifyContent="center"
+              w="97%"
+              mt={10}
+            >
+              <Box bg="#212121" paddingRight={2} paddingLeft={2}>
+                <Text opacity="50%" fontWeight={500}>
+                  PROJECTS
+                </Text>
+              </Box>
+            </Flex>
+          </Center>
 
-              <ProjectCard
-                title="pfps"
-                description="A website to find matching profile pictures for you and your friends."
-                status="wip"
-                thumbnail="https://sx.runa.live/chrome_WkJ8VE7uXB.png"
-                link="https://pfps.one"
-                gradientRGB="77,23,128"
-              />
-            </SimpleGrid>
-          </Box>
-        </Center>
-      </Container>
+          <Center>
+            <Box w="100%" mb={20} mt={10}>
+              <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} gap={8} w="100%">
+                <ProjectCard
+                  title="upld"
+                  description="An easy to use, simple file uploader made for use with ShareX."
+                  status="offline"
+                  thumbnail="/upld-preview.png"
+                  link="https://upld.cloud"
+                  gradientRGB="46,44,166"
+                />
+
+                <ProjectCard
+                  title="pfps"
+                  description="A website to find matching profile pictures for you and your friends."
+                  status="wip"
+                  thumbnail="https://sx.runa.live/chrome_WkJ8VE7uXB.png"
+                  link="https://pfps.one"
+                  gradientRGB="77,23,128"
+                />
+              </SimpleGrid>
+            </Box>
+          </Center>
+        </Container>
+      </Center>
     </>
   );
 }
