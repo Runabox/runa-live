@@ -117,7 +117,7 @@ function Index() {
               alignItems="right"
               textAlign="right"
               spacing={1}
-              display={{ md: 'none' }}
+              display={{ md: "none" }}
             >
               <SocialLink
                 icon={<FaDiscord />}
@@ -189,7 +189,17 @@ function Index() {
                 description="An easy to use, simple file uploader made for use with ShareX."
                 status="offline"
                 thumbnail="/upld-preview.png"
-                link="https://runa.live"
+                link="https://upld.cloud"
+                gradientRGB="46,44,166"
+              />
+
+              <ProjectCard
+                title="pfps"
+                description="A website to find matching profile pictures for you and your friends."
+                status="wip"
+                thumbnail="https://sx.runa.live/chrome_WkJ8VE7uXB.png"
+                link="https://pfps.one"
+                gradientRGB="77,23,128"
               />
             </SimpleGrid>
           </Box>
@@ -199,18 +209,25 @@ function Index() {
   );
 }
 
-function ProjectCard({ title, description, thumbnail, link, status }) {
+function ProjectCard({
+  title,
+  description,
+  thumbnail,
+  link,
+  status,
+  gradientRGB,
+}) {
   return (
     <Center>
       <Box
         _hover={{ cursor: "pointer", opacity: "80%" }}
         as={"a"}
-        href={status === "offline" ? undefined : link}
+        href={status === "offline" || status === "wip" ? undefined : link}
         target="_blank"
         borderRadius={10}
         w={350}
         boxShadow="3px 3px rgba(0, 0, 0, 0.10)"
-        bg="linear-gradient(356deg, rgba(46,44,166,1) 0%, rgba(0,0,0,1) 53%, rgba(0,0,0,1) 69%)"
+        bg={`linear-gradient(356deg, rgba(${gradientRGB},1) 0%, rgba(0,0,0,1) 53%, rgba(0,0,0,1) 69%)`}
         overflow="hidden"
       >
         <Image src={thumbnail} />
@@ -219,7 +236,14 @@ function ProjectCard({ title, description, thumbnail, link, status }) {
           <Flex flexDir="row" alignItems="center">
             <Heading textShadow="2px 2px black">{title}</Heading>
             <Text textAlign="right" w="100%" opacity="75%">
-              Status: <b>{status === "offline" ? "Offline" : "Online"}</b>
+              Status:{" "}
+              <b>
+                {status === "offline"
+                  ? "Offline"
+                  : status === "wip"
+                  ? "Under Construction"
+                  : "Online"}
+              </b>
             </Text>
           </Flex>
           <Text opacity="75%" mt={1}>
